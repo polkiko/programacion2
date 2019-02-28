@@ -7,7 +7,7 @@ public class ProcesarOrdenes {
     Scanner stdin = new Scanner(System.in);
 
     // Se declara un array de canciones con el maximo
-    final int N = 10; // final indica que es una variable estatica
+    final int N = 10; // final indica que es una variable constante
     Cancion[] playlist = new Cancion[N];
 
     // Variable auxiliar para iteraciones
@@ -46,7 +46,7 @@ public class ProcesarOrdenes {
           playlist[i] = null;
         }
         break;
-        
+
       }
     }
     // Imprimir la playlist
