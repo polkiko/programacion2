@@ -1,29 +1,24 @@
+import java.util.Scanner;
+
 public class ProcesarOrdenes {
   public static void main(String[] args) {
-    // Se crea un objeto Scanner para poder
-    // leer de la entrada estándar
-    java.util.Scanner stdin =
-      new java.util.Scanner(System.in);
 
-    // Se declara un array de canciones
-    Cancion[] playlist;
-    
-    // Declaración del máximo
-    final int N = 10;
-    playlist = new Cancion[N];
+    // Se crea un objeto Scanner para poder leer de la entrada estándar
+    Scanner stdin = new Scanner(System.in);
+
+    // Se declara un array de canciones con el maximo
+    final int N = 10; // final indica que es una variable estatica
+    Cancion[] playlist = new Cancion[N];
 
     // Variable auxiliar para iteraciones
     int i = 0;
 
-    // Leer órdenes hasta que no haya más datos
-    // en la entrada estándar
+    // Leer órdenes hasta que no haya más datos en la entrada estándar
     while (stdin.hasNext()) {
-      String o = stdin.nextLine();
+      String o = stdin.nextLine(); // Leemos la primera orden
       switch (o) {
-      case "a":
-        // Añadir canción
-        while (i < playlist.length
-               && playlist[i] != null) {
+      case "a": // Añadir canción
+        while (i < playlist.length && playlist[i] != null) {
           i++;
         }
         assert i >= playlist.length || playlist[i] == null;
@@ -35,8 +30,7 @@ public class ProcesarOrdenes {
           stdin.nextLine();
         }
         break;
-      case "r":
-        // Borrar canción
+      case "r": // Borrar canción
         i = 0;
         String titulo = stdin.nextLine();
         while (i < playlist.length
