@@ -24,24 +24,19 @@ public class ProcesarOrdenes {
         assert i >= playlist.length || playlist[i] == null;
         if (i < playlist.length) {
           assert playlist[i] == null;
-          playlist[i] = new Cancion(stdin.nextLine(),
-                                    stdin.nextLine(),
-                                    stdin.nextInt());
+          playlist[i] = new Cancion(stdin.nextLine(), stdin.nextLine(), stdin.nextInt());
           stdin.nextLine();
         }
         break;
+
       case "r": // Borrar canción
         i = 0;
         String titulo = stdin.nextLine();
-        while (i < playlist.length
-               && (playlist[i] == null
-                   || !titulo.equals(playlist[i].titulo()))) {
+        while (i < playlist.length && (playlist[i] == null || !titulo.equals(playlist[i].titulo()))) {
           i++;
         }
-        assert
-          i >= playlist.length
-          || (playlist[i] != null
-              && titulo.equals(playlist[i].titulo()));
+        assert i >= playlist.length || (playlist[i] != null && titulo.equals(playlist[i].titulo()));
+
         if (i < playlist.length) {
           playlist[i] = null;
         }
