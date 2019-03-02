@@ -21,9 +21,7 @@ public class ProcesarOrdenes {
         while (i < playlist.length && playlist[i] != null) {
           i++;
         }
-        assert i >= playlist.length || playlist[i] == null;
         if (i < playlist.length) {
-          assert playlist[i] == null;
           playlist[i] = new Cancion(stdin.nextLine(), stdin.nextLine(), stdin.nextInt());
           stdin.nextLine();
         }
@@ -32,13 +30,15 @@ public class ProcesarOrdenes {
       case "r": // Borrar canción
         i = 0;
         String titulo = stdin.nextLine();
-        while (i < playlist.length && (playlist[i] == null || !titulo.equals(playlist[i].titulo()))) {
+        while (i < playlist.length && !titulo.equals(playlist[i].titulo())) {
           i++;
         }
-        assert i >= playlist.length || (playlist[i] != null && titulo.equals(playlist[i].titulo()));
+        playlist[i] = null;
 
-        if (i < playlist.length) {
-          playlist[i] = null;
+        while(playlist[i+1] != null){
+          playlist[i] = playlist[i+1];
+          playlist[i+1] = null;
+          i++;
         }
         break;
 
@@ -46,9 +46,9 @@ public class ProcesarOrdenes {
     }
     // Imprimir la playlist
     for (i = 0; i < playlist.length; i++) {
-      if (playlist[i] != null) {
-        System.out.println(playlist[i]);
-      }
+      // if (playlist[i] != null) {
+        System.out.println("Posicion " + i + ": " + playlist[i]);
+      // }
     }
   }
 }
