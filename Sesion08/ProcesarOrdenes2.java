@@ -10,7 +10,7 @@ public class ProcesarOrdenes2 {
     Playlist playlist = new Playlist();
 
     // Variables auxiliares
-    int i = 0;
+    int i = 0; // Contador
     String t;
     String a;
     int v;
