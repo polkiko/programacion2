@@ -15,7 +15,7 @@ public class SIM {
     // al número de horas que han hecho dicha actividad
 
     /**
-     * METODO CONSTRUCTOR que crea los objetos de mi clase de Enumerados
+     * METODO MODIFICADOR que suma las horas a la actividad
      *
      * @param horas Horas que se anaden para la estadística
      */
