@@ -32,7 +32,7 @@ public class SIM {
       return tiempoHoras;
     }
 
-  };
+  }
 
   // Defino los atributos que utilizaré para esta clase
   private String nombre;
