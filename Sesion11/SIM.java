@@ -20,7 +20,7 @@ public class SIM {
      * @param horas Horas que se anaden para la estadística
      */
     public void anadirHoras(int horas){
-      this.tiempoHoras = horas;
+      this.tiempoHoras += horas;
     }
 
     /**
@@ -43,7 +43,7 @@ public class SIM {
   /**
    * METODO CONSTRUCTOR que crea un SIM
    *
-   * @param  nombre Nombre del SIM
+   * @param nombre Nombre del SIM
    */
   public SIM(String nombre){
     this.nombre = nombre; // Asigno el nombre de mi SIM
