@@ -1,4 +1,5 @@
-import geometria.*;
+import geometria.Cuadrado;
+import geometria.Circulo;
 
 class TestGeometria{
   public static void main(String[] args){

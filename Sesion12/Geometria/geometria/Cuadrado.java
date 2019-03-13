@@ -6,7 +6,7 @@
 
 package geometria;
 
-class Cuadrado{
+public class Cuadrado{
 
   private int base;
   private int altura;
@@ -21,7 +21,7 @@ class Cuadrado{
 	 * @param x Base del cuadrado
 	 * @param y Altura del cuadrado
 	 */
-  Cuadrado(int x, int y){
+  public Cuadrado(int x, int y){
     base = x;
     altura = y;
   }

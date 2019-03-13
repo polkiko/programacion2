@@ -6,7 +6,7 @@
 
 package geometria;
 
-class Punto2D{
+public class Punto2D{
 
 	private double x;
 	private double y;

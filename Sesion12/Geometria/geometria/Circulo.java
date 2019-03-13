@@ -8,7 +8,7 @@ package geometria;
 
 import java.lang.Math;
 
-class Circulo{
+public class Circulo{
 
   private int r; // Radio del círculo
 
@@ -21,7 +21,7 @@ class Circulo{
 	 *
 	 * @param radio Radio del círculo
 	 */
-  Circulo(int radio){
+  public Circulo(int radio){
     r = radio;
   }
 
