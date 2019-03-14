@@ -1,10 +1,17 @@
+/**
+ * Test de geometria. Algunas pruebas
+ *
+ * @author Jesus Jerez
+ */
+
 import geometria.Cuadrado;
 import geometria.Circulo;
 
 class TestGeometria{
+
   public static void main(String[] args){
 
-    Cuadrado c1 = new Cuadrado(5,2);
+    Cuadrado c1 = new Cuadrado(5,2); // PUBLIC!
     Circulo circ = new Circulo(3);
 
     System.out.println(c1.areaCuadrado());
@@ -15,4 +22,5 @@ class TestGeometria{
 
     c1.printCuadrado();
   }
+
 }
