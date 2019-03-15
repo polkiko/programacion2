@@ -1,14 +1,19 @@
+/**
+ * Definición de clase, objeto, asignación, tipo...
+ *
+ * @author Jesus Jerez
+ */
+
 public class Sesion02 {
 	public static void main(String[] args) {
-		/*Canciones a1;
-		a1 = new Canciones();
 
-		System.out.println(a1);
-		
-		/*String nombre = "";
-		for(int i = 0; i < args.length; i++){
-			nombre = nombre + args[i] + " ";
-		}
-		System.out.println("Hola " + nombre);*/
+		A a; // Crea una variable 'a' del tipo 'A'
+
+		a = new A(); // El 'new A()' crea un objeto (instancia) de la clase a,
+								 // Y lo asigna a la variable 'a'
+
+		/** [DIAPOSITIVAS] Recomendación muy grande leer las diapositivas de la Sesion02
+		 *  Están muy bien presentadas y diseñadas para comprender qué es una clase, objeto...
+		**/
 	}
 }
