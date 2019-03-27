@@ -1,3 +1,9 @@
+/**
+ * Manejo con pilas sin métodos
+ *
+ * @author Jesus Jerez
+ */
+ 
 import java.util.Scanner;
 
 public class Sesion10 {

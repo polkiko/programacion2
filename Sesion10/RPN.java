@@ -1,3 +1,10 @@
+/**
+ * RPN: Notación Polaca Inversa. Método que nos permite realizar operaciones algebraicas
+ * tales como 5 3 2 * + =
+ *
+ * @author Jesus Jerez
+ */
+ 
 import java.util.Scanner;
 
 public class RPN {

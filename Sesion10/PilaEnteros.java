@@ -1,3 +1,10 @@
+/**
+ * Clase de mi pila, que me permite crear una pila, apilar (push), desapilar (pop),
+ * y mostrar el último elemento (top).
+ *
+ * @author Jesus Jerez
+ */
+ 
 public class PilaEnteros {
 
   private int[] pila;
