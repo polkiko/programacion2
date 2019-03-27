@@ -3,7 +3,7 @@
  * con su numerador y denominador. Además, contiene algunos métodos
  * que nos permiten realizar algunas acciones con los mismos.
  *
- * ¡IMPORTANTE! En el fichero TestRacional.java, será donde esté el test
+ * ¡IMPORTANTE! En el fichero TestRacional.java, será donde esté el test.
  *
  * @author Jesus Jerez
  */

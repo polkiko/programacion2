@@ -5,7 +5,7 @@
  * En esta sesión trabajaremos con las clases, objetos y métodos.
  * Para ello realizaremos los ejercicios propuestos por Herranz.
  *
- * ¡IMPORTANTE! Consulta el fichero Racional.java, será donde esté la clase
+ * ¡IMPORTANTE! Consulta el fichero Racional.java, será donde esté la clase.
  *
  * @author Jesus Jerez
  */
