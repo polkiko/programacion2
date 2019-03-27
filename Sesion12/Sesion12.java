@@ -1,3 +1,10 @@
+/**
+ * En revisión
+ * ¡IMPORTANTE!
+ *
+ * @author Jesus Jerez
+ */
+
 import java.util.Locale;
 import org.joda.time.DateTime;
 import org.joda.time.Seconds;
