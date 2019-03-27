@@ -1,6 +1,6 @@
 /**
  * Clase Racional. Crea objetos del tipo racional, que son fracciones
- * con su numerados y denominador. Además, contiene algunos métodos
+ * con su numerador y denominador. Además, contiene algunos métodos
  * que nos permiten realizar algunas acciones con los mismos.
  *
  * ¡IMPORTANTE! En el fichero TestRacional.java, será donde esté el test
