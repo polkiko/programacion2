@@ -1,5 +1,5 @@
 /**
- * Programa que testea la clase SIM mediante algunas pruebas y asserts
+ * Programa que testea la clase SIM mediante algunas pruebas y asserts.
  *
  * @author Jesus Jerez
  */
