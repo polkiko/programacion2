@@ -1,12 +1,12 @@
 public class Hexagono extends PoligonoRegular {
 
   public Hexagono(Punto2D centro, double longLado) {
-    this.centro = centro;
-    this.nLados = 6;
-    this.longLado = longLado;
-
     // Esto lo que hace es llama al método constructor de la super clase con
-    // los parametros que le paso
+    // los parametros que le paso, de manera que ya no hace falta hacer:
+    //
+    // this.centro = centro;
+    // this.nLados = 6;
+    // this.longLado = longLado;
     super(centro, 6, longLado);
   }
 
