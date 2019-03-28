@@ -14,6 +14,8 @@ public abstract class Figura {
   // actual clase no puedo definir cómo calcular el area.
   public abstract double area();
 
+  public abstract void print();
+
   public Punto2D centro() {
     return centro;
   }

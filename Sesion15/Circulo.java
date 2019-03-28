@@ -11,4 +11,8 @@ public class Circulo extends Figura {
     return Math.PI * radio * radio;
   }
 
+  public void print(){
+    System.out.println("Radio: " + radio + ". Centro: " + centro);
+  }
+
 }
