@@ -1,37 +1,39 @@
 /**
- * Crea instancias de un punto representado en 2D
+ * Crea instancias de un punto representado en 2D. Para ello emplearemos
+ * la coordenada 'x' y la 'y', que serán los atributos de la misma.
  *
  * @author Jesus Jerez
  */
-
-package geometria;
+import java.lang.Math;
 
 class Punto2D{
 
+	// En este ejemplo, hemos añadido el modificador 'private' para que no pueda
+	// ser utilizado desde fuera, y sólo sea en esta clase
+	// Consultar fichero Sesion05.java para ver qué no está permitido.
 	private double x;
 	private double y;
 
  /**
-	 * Constructor vacio. Crea el punto (0,0)
+	 * Constructor no permitido. Para ello hemos añadido 'private', de manera que
+	 * no podrá utilizarse el constructor vacío
 	 */
-	Punto2D(){
-		x = 0;
-		y = 0;
+	private Punto2D(){
 	}
 
 	/**
-	 * Crea el punto (x,y)
+	 * MÉTODO CONSTRUCTOR: Crea el punto de la forma (x,y)
 	 *
 	 * @param x Variable x del punto
 	 * @param y Variable y del punto
 	 */
-	Punto2D(double x, double y){
+	public Punto2D(double x, double y){
 		this.x = x;
 		this.y = y;
 	}
 
 	/**
-	 * Devuelve la distancia entre dos puntos
+	 * MÉTODO OBSERVADOR: Devuelve la distancia entre dos puntos dados
 	 *
 	 * @param p El otro punto del que calcular la distancia
 	 * @return Distancia entre los dos puntos
@@ -43,7 +45,7 @@ class Punto2D{
 	}
 
 	/**
-	 * Devuelve la coordenada del eje de abscisas (x)
+	 * MÉTODO OBSERVADOR: Devuelve la coordenada del eje de abscisas (x)
 	 *
 	 * @return coordenada x
 	 */
@@ -52,7 +54,7 @@ class Punto2D{
 	}
 
 	/**
-	 * Devuelve la coordenada del eje de ordenadas (y)
+	 * MÉTODO OBSERVADOR: Devuelve la coordenada del eje de ordenadas (y)
 	 *
 	 * @return coordenada y
 	 */
