@@ -17,8 +17,7 @@ Antes de empezar a utilizar Git, debemos de configurar nuestras variables locale
 `$ git config --global user.email tu@email.com`
 
 
-Lo siguiente será clonar todo el contenido del repositorio Git en nuestra carpeta en local:
-(Nos situamos en el directorio donde queramos crear la carpeta con todos los archivos)
+Lo siguiente será clonar todo el contenido del repositorio Git en nuestra carpeta en local. (Nos situamos en el directorio donde queramos crear la carpeta con todos los archivos):
 
 `$ git clone https://github.com/polkiko/programacion2.git nombre_carpeta`
 
@@ -27,3 +26,6 @@ Y entramos en nuestro proyecto:
 `$ cd nombre_carpeta`
 
 De esta manera tendremos directamente en nombre_carpeta todos los archivos del repositorio en nuestra máquina, pudiendo trabajar sobre ellos si queremos.
+
+*Nota:* si alguien conoce Git, puede optar por aportar cualquier mejora o ampliación de los ficheros. Para ello, sólo debes crearte
+una rama con tu nombre y trabajar sobre ella. Dejemos la rama `master` siempre libre.
