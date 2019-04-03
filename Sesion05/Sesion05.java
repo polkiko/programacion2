@@ -38,8 +38,8 @@
  * es bueno utilizarla en cualquier lenguaje de programación.
  *
  * También hicimos alusión a los dos 'roles' que existen a la hora de implementar
- * nuevo cñodigo.
-
+ * nuevo código.
+ *
  * ¡IMPORTANTE! Revisa las transpas de Herranz correspondientes a la Sesion 05
  *
  * ¡IMPORTANTE! Consulta el fichero Punto2D.java para conocer más de la implementación
