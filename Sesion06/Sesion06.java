@@ -32,16 +32,50 @@ class Sesion06 {
 
 	public static void main(String[] args) {
 
-		Naipe[] cartas;
-		cartas = new Naipe[5];
+		// Así pues en esta sesión vamos a comenzar por crearnos un string de Naipes
+		// al que llamaremos 'cartas', que tendrá espacio para almacenar 5 Naipes
+		Naipe[] cartas = new Naipe[5];
 
+		// Y ahora en cada posición del array asignamos un objeto de tipo Naipe
 		cartas[0] = new Naipe("picas", "as");
-		cartas[1] = new Naipe("picas", "rey");
+		cartas[1] = new Naipe("corazones", "rey");
 		cartas[2] = new Naipe("picas", "dama");
 		cartas[3] = new Naipe("picas", "valet");
-		cartas[4] = new Naipe("picas", "diez");
+		cartas[4] = new Naipe("diamantes", "diez");
 
-		System.out.println("Palo: " + cartas[0].palo());
+		System.out.println(cartas[1].palo()); // Devuelve 'corazones'
+
+		/*********************************************************************/
+		/************************ PARTE 2: ENUMERADOS ************************/
+		/*********************************************************************/
+
+		/** Tras esta primera parte, Herranz propuso una serie de ejercicios tras
+		 * explicarnos qué eran los enumerados.
+		 *
+		 * Los enum (enumeradors) son ni más ni menos que un tipo de clase especial
+		 * que nos proporciona Java que nos permiten definir una enumeración de
+		 * objetos.
+		 *
+		 * [IMPORTANTE] Para la siguiente parte utilizaremos la clase 'Naipe_enum',
+		 * la cual puedes consultar en el fichero 'Naipe_enum.java' para conocer
+		 * cómo funciona.
+		 */
+
+		 // Declaro una variable array de naipes que contendrá 5 naipes
+    Naipe_enum[] cartas2 = new Naipe_enum[5];
+
+    // Y a continuación creamos 'la mejor mano del poker' utilizando enumerados
+		// Como ves, los valores que pasamos van precedidos del tipo que es y un punto,
+		// siendo sólo posibles aquellos que tengamos en el enumerado de la clase
+		cartas2[0] = new Naipe_enum(Palo.PICAS, Valor.AS);
+		cartas2[1] = new Naipe_enum(Palo.PICAS, Valor.REY);
+		cartas2[2] = new Naipe_enum(Palo.PICAS, Valor.DAMA);
+		cartas2[3] = new Naipe_enum(Palo.PICAS, Valor.VALET);
+		cartas2[4] = new Naipe_enum(Palo.PICAS, Valor.DIEZ);
+
+		for (int i = 0; i < cartas2.length; i++) {
+      cartas2[i].imprimirPalo(); //Imprime el palo de cada carta
+    }
 
 	}
 
