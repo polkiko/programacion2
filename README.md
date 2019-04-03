@@ -27,5 +27,5 @@ Y entramos en nuestro proyecto:
 
 De esta manera tendremos directamente en nombre_carpeta todos los archivos del repositorio en nuestra máquina, pudiendo trabajar sobre ellos si queremos.
 
-*Nota:* si alguien conoce Git, puede optar por aportar cualquier mejora o ampliación de los ficheros. Para ello, sólo debes crearte
-una rama con tu nombre y trabajar sobre ella. Dejemos la rama `master` siempre libre.
+### Nota
+Si alguien conoce más a fondo Git, puede aportar cualquier mejora o ampliación de los ficheros. Para ello, sólo debes crearte una rama con tu nombre y trabajar sobre ella. Dejemos la rama `master` siempre libre.
