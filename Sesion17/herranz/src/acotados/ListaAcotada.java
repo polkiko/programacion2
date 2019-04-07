@@ -54,10 +54,12 @@ public class ListaAcotada<E> implements Lista<E> {
     if (encontrado) {
       // Movemos todos los elementos a izquierda desde el índice del
       // elemento a borrar
-      while (elementos[index] != null) {
+      while (index < elementos.length - 1
+             && elementos[index] != null) {
         elementos[index] = elementos[index + 1];
         index++;
       }
+      elementos[index] = null;
     }
     return encontrado;
   }
