@@ -66,6 +66,7 @@ public class ListaAcotada<E> implements Lista<E> {
   }
 
   public void set(int insertIndex, E element) {
+    elementos[insertIndex] = element;
   }
 
   public int size() {
