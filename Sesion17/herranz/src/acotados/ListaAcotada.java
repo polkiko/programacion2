@@ -50,6 +50,6 @@ public class ListaAcotada<E> implements Lista<E> {
   }
 
   public boolean isFull() {
-    return false;
+    return size() == elementos.length;
   }
 }
