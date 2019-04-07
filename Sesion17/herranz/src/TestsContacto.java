@@ -35,5 +35,11 @@ public class TestsContacto {
       c.enviar(repetido);
     assert c.nMensajes() == 11;
     assert repetido.equals(c.ultimoMensaje());
+
+    // Prueba de un último mensaje
+    String ultimo = "Ya he quedado a cenar con mi madre";
+    c.enviar(ultimo);
+    assert c.nMensajes() == 12;
+    assert ultimo.equals(c.ultimoMensaje());
   }
 }
