@@ -27,5 +27,14 @@ public class TestsListaAcotada {
       l.add(0, datoi);
     }
     assert l.isFull();
+
+    // Prueba de que la lista se ha llenado correctamente
+    assert l.size() == N;
+    for (int i = 0; i < N; i++) {
+      String datoi = "Dato-" + i;
+      assert datoi.equals(l.get(i));
+    }
+    assert l.size() == N : "get() no debe cambiar size()";
+
   }
 }
