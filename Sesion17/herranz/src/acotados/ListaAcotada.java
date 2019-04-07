@@ -39,7 +39,7 @@ public class ListaAcotada<E> implements Lista<E> {
     for (int i = 0;
          i < elementos.length
            && elementos[i] != null
-           && index != -1;
+           && index == -1;
          i++) {
       if (elementos[i].equals(search)) {
         index = i;
