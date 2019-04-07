@@ -60,8 +60,7 @@ public class TestsListaAcotada {
     }
 
     // Prueba de borrado de un elemento por posición
-    borrado = l.removeElementAt(medio);
-    assert borrado;
+    l.removeElementAt(medio);
     assert l.size() == N - 2;
     for (int i = 0; i < medio; i++) {
       String datoi = "Dato-" + i;
