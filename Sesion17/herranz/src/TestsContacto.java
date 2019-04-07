@@ -28,5 +28,12 @@ public class TestsContacto {
     c.enviar(primer);
     assert c.nMensajes() == 1;
     assert primer.equals(c.ultimoMensaje());
+
+    // Prueba de envío de varios mensajes
+    String repetido = "No me contestas?";
+    for (int i = 0; i < 10; i++)
+      c.enviar(repetido);
+    assert c.nMensajes() == 11;
+    assert repetido.equals(c.ultimoMensaje());
   }
 }
