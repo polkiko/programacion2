@@ -35,7 +35,16 @@ public class ListaAcotada<E> implements Lista<E> {
   }
 
   public int indexOf(E search) {
-    return -1;
+    int index = -1;
+    int i = 0;
+    while (index == -1
+           && i < elementos.length
+           && elementos[i] != null) {
+      if (elementos[i].equals(search)) {
+        index = i;
+      }
+    }
+    return index;
   }
 
   public boolean remove(E element) {
