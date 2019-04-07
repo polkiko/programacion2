@@ -41,7 +41,12 @@ public class ListaAcotada<E> implements Lista<E> {
   }
 
   public int size() {
-    return 0;
+    int i = 0;
+    // Buscamos la primera posición con null, ese es el tamaño de la
+    // lista
+    while (elementos[i] != null)
+      i++;
+    return i;
   }
 
   public boolean isFull() {
