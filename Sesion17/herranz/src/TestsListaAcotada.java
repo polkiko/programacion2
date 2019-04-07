@@ -66,7 +66,7 @@ public class TestsListaAcotada {
       String datoi = "Dato-" + i;
       assert datoi.equals(l.get(i)) : "hasta el medio nada ha cambiado";
     }
-    for (int i = medio; i < N; i++) {
+    for (int i = medio; i < l.size(); i++) {
       String datoi = "Dato-" + (i + 2);
       assert datoi.equals(l.get(i)) : "desde el medio los datos cambian";
     }
