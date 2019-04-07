@@ -37,11 +37,13 @@ public class TestsListaAcotada {
     assert l.size() == N : "get() no debe cambiar size()";
 
     // Prueba de cambio de un elemento
-    l.set(5, "Cinco");
-    assert !"Dato-5".equals(l.get(5));
-    assert "Cinco".equals(l.get(5));
-    assert "Dato-4".equals(l.get(4))
-      : "cambiar la posición 5 no debe cambiar la posición 4";
-
+    int medio = N/2;
+    l.set(medio, "Medio");
+    String datoMedio = "Dato-" + medio;
+    assert !datoMedio.equals(l.get(medio));
+    assert "Medio".equals(l.get(5));
+    String datoAnterior = "Dato-" + (medio - 1);
+    assert datoAnterior.equals(l.get(medio - 1))
+      : "cambiar el dato i no debe cambiar el i - 1";
   }
 }
