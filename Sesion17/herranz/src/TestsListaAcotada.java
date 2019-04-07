@@ -76,5 +76,14 @@ public class TestsListaAcotada {
       String datoi = "Dato-" + i;
       assert i == l.indexOf(datoi);
     }
+
+    // Prueba de add en el medio y al final
+    l.add(medio, datoMedio);
+    assert l.size() == N - 1;
+    assert datoMedio.equals(l.get(medio));
+    l.add(l.size(), "Último");
+    assert l.size() == N;
+    assert l.isFull();
+    assert "Último".equals(l.get(l.size() - 1));
   }
 }
