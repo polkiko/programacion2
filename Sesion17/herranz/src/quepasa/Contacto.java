@@ -46,26 +46,27 @@ public class Contacto {
    * Se envía el mensaje al contacto.
    */
   public void enviar(String mensaje) {
+    mensajes.add(0, mensaje);
   }
 
   /**
    * Devuelve todos los mensajes enviados a un usuario.
    */
   public Lista<String> mensajes() {
-    return null;
+    return mensajes;
   }
 
   /**
    * Devuelve el último mensaje enviado (null si no hay mensajes).
    */
   public String ultimoMensaje() {
-    return null;
+    return mensajes.get(0);
   }
 
   /**
    * Devuelve el número de mensajes enviados al contacto.
    */
   public int nMensajes() {
-    return 0;
+    return mensajes.size();
   }
 }
