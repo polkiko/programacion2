@@ -21,6 +21,12 @@ public class TestsContacto {
     c.cambiarNombre(null);
     c.cambiarAvatar(null);
     assert c.nombre() == null;
-    assert c.avatar() == null
+    assert c.avatar() == null;
+
+    // Prueba de envío de un mensaje
+    String primer = "Hola guapo, quedamos para cenar?";
+    c.enviar(primer);
+    assert c.nMensajes() == 1;
+    assert primer.equals(c.ultimoMensaje());
   }
 }
