@@ -71,5 +71,11 @@ public class TestsListaAcotada {
       String datoi = "Dato-" + (i + 2);
       assert datoi.equals(l.get(i)) : "desde el medio los datos cambian";
     }
+
+    // Prueba de búsqueda
+    for (int i = 0; i < medio; i++) {
+      String datoi = "Dato-" + i;
+      assert i == l.indexOf(datoi);
+    }
   }
 }
