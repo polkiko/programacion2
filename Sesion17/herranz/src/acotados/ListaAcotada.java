@@ -19,6 +19,14 @@ public class ListaAcotada<E> implements Lista<E> {
   }
 
   public void add(int insertIndex, E element) {
+    // Desplazamos todos los elementos desde insertIndex a la
+    // "derecha" desde el último
+    int i;
+    for (i = size(); i > insertIndex; i--) {
+      elementos[i] = elementos[i-1];
+    }
+    assert i == insertIndex;
+    elementos[i] = element;
   }
 
   @SuppressWarnings("unchecked")
