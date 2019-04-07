@@ -22,7 +22,7 @@ public class TestsListaAcotada {
 
     // Prueba de llenado de la lista
     assert l.size() == 0;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < N; i++) {
       String datoi = "Dato-" + i;
       l.add(0, datoi);
     }
