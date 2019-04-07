@@ -58,5 +58,18 @@ public class TestsListaAcotada {
       String datoi = "Dato-" + (i + 1);
       assert datoi.equals(l.get(i)) : "desde el medio los datos cambian";
     }
+
+    // Prueba de borrado de un elemento por posición
+    borrado = l.removeElementAt(medio);
+    assert borrado;
+    assert l.size() == N - 2;
+    for (int i = 0; i < medio; i++) {
+      String datoi = "Dato-" + i;
+      assert datoi.equals(l.get(i)) : "hasta el medio nada ha cambiado";
+    }
+    for (int i = medio; i < N; i++) {
+      String datoi = "Dato-" + (i + 2);
+      assert datoi.equals(l.get(i)) : "desde el medio los datos cambian";
+    }
   }
 }
