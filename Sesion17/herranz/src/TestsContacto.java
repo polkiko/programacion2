@@ -14,7 +14,13 @@ public class TestsContacto {
     String avatar = "https://pbs.twimg.com/profile_images/682327338755854336/gl1v_Qf6_400x400.jpg";
     c.cambiarNombre(nombre);
     c.cambiarAvatar(avatar);
-    assert nombre.equals(c.nombre);
-    assert avatar.equals(c.avatar);
+    assert nombre.equals(c.nombre());
+    assert avatar.equals(c.avatar());
+
+    // Comprobar borrado de nombres y avatar
+    c.cambiarNombre(null);
+    c.cambiarAvatar(null);
+    assert c.nombre() == null;
+    assert c.avatar() == null
   }
 }
