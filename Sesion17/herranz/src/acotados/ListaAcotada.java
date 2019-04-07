@@ -52,19 +52,21 @@ public class ListaAcotada<E> implements Lista<E> {
     int index = indexOf(element);
     boolean encontrado = index != -1;
     if (encontrado) {
-      // Movemos todos los elementos a izquierda desde el índice del
-      // elemento a borrar
-      while (index < elementos.length - 1
-             && elementos[index] != null) {
-        elementos[index] = elementos[index + 1];
-        index++;
-      }
-      elementos[index] = null;
+      removeElementAt(index);
     }
     return encontrado;
   }
 
   public void removeElementAt(int removalIndex) {
+    // Movemos todos los elementos a la izquierda desde el índice del
+    // elemento a borrar
+    int i = removalIndex;
+    while (i < elementos.length - 1
+           && elementos[i] != null) {
+      elementos[i] = elementos[i + 1];
+      i++;
+    }
+    elementos[i] = null;
   }
 
   public void set(int insertIndex, E element) {
