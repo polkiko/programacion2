@@ -20,5 +20,12 @@ public class TestsListaAcotada {
     borrado = l.remove("Hola");
     assert borrado;
 
+    // Prueba de llenado de la lista
+    assert l.size() == 0;
+    for (int i = 0; i < 10; i++) {
+      String datoi = "Dato-" + i;
+      l.add(0, datoi);
+    }
+    assert l.isFull();
   }
 }
