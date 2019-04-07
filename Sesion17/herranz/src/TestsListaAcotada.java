@@ -47,7 +47,7 @@ public class TestsListaAcotada {
       : "cambiar el dato i no debe cambiar el i - 1";
 
     // Prueba de borrado de un elemento
-    borrado = l.remove(datoMedio);
+    borrado = l.remove("Medio");
     assert borrado;
     assert l.size() == N - 1;
     for (int i = 0; i < medio; i++) {
