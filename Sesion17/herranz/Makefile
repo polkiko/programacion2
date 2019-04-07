@@ -15,7 +15,7 @@ default:
 	@echo "  make run # Ejecuta los tests, primero listas acotadas y luego contactos"
 
 compile:
-	javac -d bin -cp src -s src src/TestsListaAcotada.java
+	javac -Xlint:unchecked -d bin -cp src -s src src/TestsListaAcotada.java
 	javac -d bin -cp src -s src src/TestsContacto.java
 
 run: compile

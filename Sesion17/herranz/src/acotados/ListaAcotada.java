@@ -22,7 +22,7 @@ public class ListaAcotada<E> implements Lista<E> {
   }
 
   public E get(int getIndex) {
-    return null;
+    return (E)elementos[getIndex];
   }
 
   public int indexOf(E search) {
