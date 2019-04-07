@@ -17,6 +17,25 @@ public class Contacto {
   }
 
   /**
+   * Modifica el nombre del contacto (lo elimina si se le pasa null).
+   */
+  public void cambiarNombre(String nuevoNombre) {
+  }
+
+  /**
+   * Devuelve el avatar del contacto o null si no tiene avatar.
+   */
+  public String avatar() {
+    return null;
+  }
+
+  /**
+   * Modifica el avatar del contacto (lo elimina si se le pasa null).
+   */
+  public void cambiarAvatar(String nuevoAvatar) {
+  }
+
+  /**
    * Se envía el mensaje al contacto.
    */
   public void enviar(String mensaje) {
