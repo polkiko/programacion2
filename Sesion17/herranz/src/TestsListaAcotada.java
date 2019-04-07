@@ -24,7 +24,7 @@ public class TestsListaAcotada {
     assert l.size() == 0;
     for (int i = 0; i < N; i++) {
       String datoi = "Dato-" + i;
-      l.add(0, datoi);
+      l.add(i, datoi);
     }
     assert l.isFull();
 
