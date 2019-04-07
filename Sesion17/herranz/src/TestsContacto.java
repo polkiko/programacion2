@@ -1,4 +1,5 @@
 import quepasa.Contacto;
+import acotados.Lista;
 
 public class TestsContacto {
   public static void main(String[] args) {
@@ -41,5 +42,13 @@ public class TestsContacto {
     c.enviar(ultimo);
     assert c.nMensajes() == 12;
     assert ultimo.equals(c.ultimoMensaje());
+
+    // Prueba de mensajes
+    Lista mensajes = c.mensajes();
+    assert primer.equals(mensajes.get(0));
+    assert ultimo.equals(mensajes.get(mensajes.size() - 1));
+    for (int i = 1; i < mensajes.size() - 2; i++) {
+      assert repetido.equals(mensajes.get(i));
+    }
   }
 }
