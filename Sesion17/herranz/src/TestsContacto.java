@@ -9,5 +9,12 @@ public class TestsContacto {
     assert c.avatar() == null;
     assert c.nMensajes() == 0;
 
+    // Comprobar cambios de nombres y avatar
+    String nombre = "John Dow";
+    String avatar = "https://pbs.twimg.com/profile_images/682327338755854336/gl1v_Qf6_400x400.jpg";
+    c.cambiarNombre(nombre);
+    c.cambiarAvatar(avatar);
+    assert nombre.equals(c.nombre);
+    assert avatar.equals(c.avatar);
   }
 }
