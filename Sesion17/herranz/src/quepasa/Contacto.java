@@ -50,10 +50,19 @@ public class Contacto {
   }
 
   /**
-   * Devuelve todos los mensajes enviados a un usuario.
+   * Devuelve todos los mensajes enviados a un usuario. El primer
+   * mensaje ocupa la posición 0.
    */
   public Lista<String> mensajes() {
-    return mensajes;
+    // Se crea una lista de capacidad máxima el tamaño actual de
+    // mensajes
+    int n = mensajes.size();
+    Lista<String> ordenados = new acotados.ListaAcotada<String>(n);
+    // Se llena ordenados en el orden adecuado (hay que invertir mensajes)
+    for (int i = 0; i < n; i++) {
+      ordenados.add(0, mensajes.get(i));
+    }
+    return ordenados;
   }
 
   /**
