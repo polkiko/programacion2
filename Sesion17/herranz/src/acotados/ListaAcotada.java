@@ -21,6 +21,7 @@ public class ListaAcotada<E> implements Lista<E> {
   public void add(int insertIndex, E element) {
   }
 
+  @SuppressWarnings("unchecked")
   public E get(int getIndex) {
     return (E)elementos[getIndex];
   }
