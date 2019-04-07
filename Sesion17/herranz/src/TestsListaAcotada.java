@@ -85,5 +85,11 @@ public class TestsListaAcotada {
     assert l.size() == N;
     assert l.isFull();
     assert "Último".equals(l.get(l.size() - 1));
+
+    // Prueba de vaciado
+    while (l.size() > 0) {
+      l.removeElementAt(0);
+    }
+    assert l.size() == 0 : "como no podría ser de otra forma";
   }
 }
