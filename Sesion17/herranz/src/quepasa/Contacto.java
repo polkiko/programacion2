@@ -5,11 +5,13 @@ import acotados.Lista;
 public class Contacto {
   private String nombre;
   private String avatar;
+  private Lista<String> mensajes;
 
   /**
    * Constructor de contacto vacío.
    */
   public Contacto() {
+    mensajes = new acotados.ListaAcotada<String>(1000);
   }
 
   /**
