@@ -72,7 +72,7 @@ public class ListaAcotada<E> implements Lista<E> {
     int i = 0;
     // Buscamos la primera posición con null, ese es el tamaño de la
     // lista
-    while (elementos[i] != null)
+    while (i < elementos.length && elementos[i] != null)
       i++;
     return i;
   }
