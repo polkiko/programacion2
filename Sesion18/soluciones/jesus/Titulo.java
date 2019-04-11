@@ -136,6 +136,7 @@ public class Titulo {
 
     int precio = 0;
 
+    // Esto se puede mejorar, obviamente
     if(nHotel == 1){
       precio = alquilerAPagar[5];
     }else if(nCasas == 4){
