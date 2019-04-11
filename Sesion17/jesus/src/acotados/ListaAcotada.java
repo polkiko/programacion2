@@ -6,6 +6,7 @@ public class ListaAcotada<E> implements Lista<E> {
 
   public ListaAcotada(int capacidad){
     lista = new Object[capacidad];
+    // Falta por completar, logicamente sería necesario mover los elementos
   }
 
   public void add(int insertIndex, E element){
