@@ -14,4 +14,3 @@ import anotacion.Programacion2;
 	apellidoAutor2 = "", 
 	emailUPMAutor2 = ""
 )
-
