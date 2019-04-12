@@ -1,0 +1,34 @@
+Comandos básicos Git
+
+----------------------- Configurar las variables locales -----------------------
+
+$ git config --global user.name "[nombre]"
+$ git config --global user.email "[email]"
+
+------------------------- Clonar repositorio en local --------------------------
+
+$ git clone [url] [directorio_nuevo]
+
+---------------------------- Repositorio en remoto -----------------------------
+
+$ git remote add [nombre_remoto] [url]
+(De esta manera podemos utilizar 'nombre_remoto' en lugar de toda la URL)
+
+------------------------------ Recuperar cambios -------------------------------
+$ git fetch [nombre_remoto]
+
+------------------------------ Trabajar con ramas ------------------------------
+$ git branch [nombre_rama]
+$ git checkout [nombre_rama] //Cambiar a una rama
+$ git branch -d [nombre_rama] //Borra una rama (-D force)
+$ git push [nombre_remoto] --delete [nombre-rama] //Borra una rama en el repo. remoto
+
+------------------------------ Fusionar una rama -------------------------------
+(Primero te sitúas en la rama que quieres mantener con checkout)
+$ git merge [rama_a_fusionar_con_la_actual]
+(Y luego borras [rama_a_fusionar_con_la_actual])
+
+---------------------------- Trabajar con cambios ------------------------------
+$ git pull [nombre_remoto/origin] [rama/master]
+$ git push [nombre_remoto/origin] [rama/master]
+(donde 'master' es la rama principal del proyecto)
