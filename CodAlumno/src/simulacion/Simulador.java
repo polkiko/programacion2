@@ -60,7 +60,7 @@ public class Simulador {
 		} else {
 			System.out.println("Pedido de cliente " + pedido.getCliente().getCodigo() + 
 					" para restaurante " + pedido.getRestaurante().getCodigo() +
-					" queda pendiente de asignación") ;
+					" queda pendiente de asignaciÃ³n") ;
 			pedidosPendientes.add(pedidosPendientes.size(), pedido);
 		}
 			

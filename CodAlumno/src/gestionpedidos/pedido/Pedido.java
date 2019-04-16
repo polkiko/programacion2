@@ -1,53 +1,72 @@
 package gestionpedidos.pedido;
 
+import anotacion.Programacion2;
 import gestionpedidos.transportes.Transporte;
+@Programacion2 (
+		nombreAutor1 = "Jesus",
+		apellidoAutor1 = "Jerez Ballesteros",
+		emailUPMAutor1 = "jesus.jerez.ballesteros@alumnos.upm.es",
+		nombreAutor2 = "",
+		apellidoAutor2 = "",
+		emailUPMAutor2 = ""
+)
 
 public class Pedido {
-	// CÓDIGO DE APOYO
+
 	private Cliente cliente;
 	private PlatoComida[] comidas;
 	private Restaurante restaurante;
 	private double importe;	
-	private Transporte transporte;
+	private Transporte transporte = null;
 	private double peso;
 	
 	public Pedido(Cliente cliente, PlatoComida[] comidas, Restaurante restaurante) {		
-		//TO-DO
+		this.cliente = cliente;
+		this.comidas = comidas;
+		this.restaurante = restaurante;
+		for(int i = 0; i < comidas.length; i++){
+			peso += comidas[i].getPeso(); // AsignaciÃ³n y suma
+			importe += comidas[i].getPrecio();
+		}
 	}
 
 	
 	public double getPeso(){
-		//TO-DO
-		return 0;
+		return peso;
 	}
 	
 	
 	public double coste(Transporte transporte){
-		//TO-DO
-		return 0;
+		double costeTotal = 0;
+
+		costeTotal += importe;
+		costeTotal += transporte.coste(restaurante.getCodigo());
+		costeTotal += transporte.coste(restaurante.getCodigo(),cliente.getCodigo());
+
+		return costeTotal;
 	}
 	
-	// CÓDIGO DE APOYO
+	// CÃ“DIGO DE APOYO
 	public double getImporte(){
 		return importe;
 	}	
 
-	// CÓDIGO DE APOYO
+	// CÃ“DIGO DE APOYO
 	public Transporte getTransporte() {
 		return transporte;
 	}
 
-	// CÓDIGO DE APOYO
+	// CÃ“DIGO DE APOYO
 	public void setTransporte(Transporte transporte) {
 		this.transporte = transporte;
 	}
 	
-	// CÓDIGO DE APOYO
+	// CÃ“DIGO DE APOYO
 	public Cliente getCliente(){
 		return cliente;
 	}
 	
-	// CÓDIGO DE APOYO
+	// CÃ“DIGO DE APOYO
 	public Restaurante getRestaurante(){
 		return restaurante;
 	}

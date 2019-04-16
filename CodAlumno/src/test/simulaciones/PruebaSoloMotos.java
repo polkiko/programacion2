@@ -20,7 +20,7 @@ public class PruebaSoloMotos {
 	private static GestionReparto gestor;
 	private static Simulador simulador;
 	
-	// crea los objetos y los añade al mapa
+	// crea los objetos y los anade al mapa
 	// crea el gestor y el simulador
 	private static void init(){
 		mapa = new Mapa(20, 20);
