@@ -4,7 +4,7 @@ import anotacion.Programacion2;
 import gestionpedidos.mapa.Mapa;
 import gestionpedidos.mapa.PosicionXY;
 import gestionpedidos.pedido.Pedido;
-import gestionpedidos.transportes.*;
+import gestionpedidos.transportes.Transporte;
 
 @Programacion2 (
         nombreAutor1 = "Jesus",
@@ -43,83 +43,60 @@ public class GestionReparto {
                 this.gestoresLocales[i].getCodEsperandoFurgo().size();
     }
 
+    /*
+     * Con el fin de simplificar los métodos siguientes, decido crear un método privado que me devuelve
+     * el número (int) de la localidad o zona a la que pertenece. Para ello utilizamos los rangos propuestos
+     * en el enunciado del proyecto:
+     *
+     * Zona 0: X [0, maxCoordX/2] Y [0, maxCoordY/2]
+     * Zona 1: X [0, maxCoordX/2] Y [maxCoordY/2 + 1, maxCoordY]
+     * Zona 2: X [maxCoordX/2 + 1, maxCoordX] Y [0, maxCoordY/2]
+     * Zona 3: X [maxCoordX/2 + 1, maxCoordX] Y [maxCoordY/2 + 1, maxCoordY]
+     *
+     */
+
+    //PRE: se da una posición válida
+    private int getLocalidad(PosicionXY posicion){
+
+        int coordenadaX = posicion.getX();
+        int coordenadaY = posicion.getY();
+
+        if(coordenadaX >= 0 && coordenadaX <= mapa.getMaxCoordX()/2) {
+            // Si X es mayor que 0 y menor que maximoX/2, entonces está en la zona 0 o 1
+
+            return (coordenadaY >= 0 && coordenadaY <= mapa.getMaxCoordY()/2)? 0: 1;
+            // Si Y es mayor que 0 y menor que maximoY/2, entonces estará en la zona 0, sino en la 1
+
+        }else{
+
+            return (coordenadaY >= 0 && coordenadaY <= mapa.getMaxCoordY()/2)? 2: 3;
+            // Si Y es mayor que 0 y menor que maximoY/2, entonces estará en la zona 2, sino en la 3
+
+        }
+    }
+
     //PRE: el transporte no ha sido asignado a ninguna zona
     public void addTransporteLocalidad(Transporte transporte) {
 
-        PosicionXY posicionTransporte = mapa.getPosicion(transporte.getCodigo());
+        int zona = getLocalidad(mapa.getPosicion(transporte.getCodigo()));
+        gestoresLocales[zona].add(transporte);
 
-        if(posicionTransporte.getX() >= 0 && posicionTransporte.getX() <= mapa.getMaxCoordX()/2 &&
-           posicionTransporte.getY() >= 0 && posicionTransporte.getY() <= mapa.getMaxCoordY()/2) {
-            // Está en la localidad 0
-            gestoresLocales[0].add(transporte);
-
-        }else if(posicionTransporte.getX() >= 0 && posicionTransporte.getX() <= mapa.getMaxCoordX()/2 &&
-                posicionTransporte.getY() >= mapa.getMaxCoordY()/2+1 && posicionTransporte.getY() <= mapa.getMaxCoordY()) {
-            // Está en la localidad 1
-            gestoresLocales[1].add(transporte);
-
-        }else if(posicionTransporte.getX() >= mapa.getMaxCoordX()/2+1 && posicionTransporte.getX() <= mapa.getMaxCoordX() &&
-                posicionTransporte.getY() >= 0 && posicionTransporte.getY() <= mapa.getMaxCoordY()/2) {
-            // Está en la localidad 2
-            gestoresLocales[2].add(transporte);
-
-        }else{
-            // Está en la localidad 3
-            gestoresLocales[3].add(transporte);
-
-        }
     }
 
     //PRE: el pedido no tiene asignado ningún transporte
     public void asignarPedido(Pedido pedido) {
-        PosicionXY posicionPedido = mapa.getPosicion(pedido.getCliente().getCodigo());
 
-        if(posicionPedido.getX() >= 0 && posicionPedido.getX() <= mapa.getMaxCoordX()/2 &&
-                posicionPedido.getY() >= 0 && posicionPedido.getY() <= mapa.getMaxCoordY()/2) {
-            // Está en la localidad 0
-            gestoresLocales[0].asignarPedido(pedido);
+        int zona = getLocalidad(mapa.getPosicion(pedido.getCliente().getCodigo()));
+        gestoresLocales[zona].asignarPedido(pedido);
 
-        }else if(posicionPedido.getX() >= 0 && posicionPedido.getX() <= mapa.getMaxCoordX()/2 &&
-                posicionPedido.getY() >= mapa.getMaxCoordY()/2+1 && posicionPedido.getY() <= mapa.getMaxCoordY()) {
-            // Está en la localidad 1
-            gestoresLocales[1].asignarPedido(pedido);
-
-        }else if(posicionPedido.getX() >= mapa.getMaxCoordX()/2+1 && posicionPedido.getX() <= mapa.getMaxCoordX() &&
-                posicionPedido.getY() >= 0 && posicionPedido.getY() <= mapa.getMaxCoordY()/2) {
-            // Está en la localidad 2
-            gestoresLocales[2].asignarPedido(pedido);
-
-        }else{
-            // Está en la localidad 3
-            gestoresLocales[3].asignarPedido(pedido);
-
-        }
     }
 
     //PRE: el pedido tiene asignado un transporte
     public void notificarEntregaPedido(Pedido pedido) {
-        PosicionXY posicionPedido = mapa.getPosicion(pedido.getCliente().getCodigo());
 
-        if(posicionPedido.getX() >= 0 && posicionPedido.getX() <= mapa.getMaxCoordX()/2 &&
-                posicionPedido.getY() >= 0 && posicionPedido.getY() <= mapa.getMaxCoordY()/2) {
-            // Está en la localidad 0
-            gestoresLocales[0].notificarEntregaPedido(pedido);
+        int zona = getLocalidad(mapa.getPosicion(pedido.getCliente().getCodigo()));
+        gestoresLocales[zona].notificarEntregaPedido(pedido);
 
-        }else if(posicionPedido.getX() >= 0 && posicionPedido.getX() <= mapa.getMaxCoordX()/2 &&
-                posicionPedido.getY() >= mapa.getMaxCoordY()/2+1 && posicionPedido.getY() <= mapa.getMaxCoordY()) {
-            // Está en la localidad 1
-            gestoresLocales[1].notificarEntregaPedido(pedido);
-
-        }else if(posicionPedido.getX() >= mapa.getMaxCoordX()/2+1 && posicionPedido.getX() <= mapa.getMaxCoordX() &&
-                posicionPedido.getY() >= 0 && posicionPedido.getY() <= mapa.getMaxCoordY()/2) {
-            // Está en la localidad 2
-            gestoresLocales[2].notificarEntregaPedido(pedido);
-
-        }else{
-            // Está en la localidad 3
-            gestoresLocales[3].notificarEntregaPedido(pedido);
-
-        }
     }
 
 }
