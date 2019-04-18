@@ -22,11 +22,8 @@ public class FurgonetaPropia extends Furgoneta {
     }
 
     public double coste(String codPosOrigen, String codPosDestino) {
-        if (this.getTara() < 500) {
-            return getMapa().distancia(codPosOrigen, codPosDestino) * EUROS_P_HORA / velocidadMedia;
-        } else {
-            return getMapa().distancia(codPosOrigen, codPosDestino) * EUROS_P_HORA / velocidadMedia * 1.10;
-        }
+        double sobreCoste = (this.getTara() < 500)? 1: 1.1; // Si la tara de la furgoneta no es menor que 500, se aplica un 10% de sobrecoste
+        return getMapa().distancia(codPosOrigen, codPosDestino) * EUROS_P_HORA / velocidadMedia * sobreCoste;
     }
 
     public void setVelocidadMedia(double velocidadMedia) {

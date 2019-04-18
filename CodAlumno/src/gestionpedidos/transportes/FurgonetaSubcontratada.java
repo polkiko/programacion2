@@ -20,11 +20,8 @@ public class FurgonetaSubcontratada extends Furgoneta {
     }
 
     public double coste(String codPosOrigen, String codPosDestino) {
-        if (this.getTara() < 1000) {
-            return getMapa().distancia(codPosOrigen, codPosDestino) * eurosPKm;
-        } else {
-            return getMapa().distancia(codPosOrigen, codPosDestino) * eurosPKm * 1.10;
-        }
+        double sobreCoste = (this.getTara() < 1000)? 1: 1.10; // Si la tara de la furgoneta no es menor que 1000, se aplica un 10% de sobrecoste
+        return getMapa().distancia(codPosOrigen, codPosDestino) * eurosPKm * sobreCoste;
     }
 
     public void setEurosPKm(double eurosPKm) {
