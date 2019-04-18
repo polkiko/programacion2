@@ -3,7 +3,7 @@ package gestionpedidos.transportes;
 import anotacion.Programacion2;
 import gestionpedidos.mapa.Mapa;
 
-@Programacion2 (
+@Programacion2(
         nombreAutor1 = "Jesus",
         apellidoAutor1 = "Jerez Ballesteros",
         emailUPMAutor1 = "jesus.jerez.ballesteros@alumnos.upm.es",
@@ -16,11 +16,13 @@ public abstract class Furgoneta extends Transporte {
 
     private double tara;
 
-    public Furgoneta(String codigo, Mapa mapa, double tara){
+    public Furgoneta(String codigo, Mapa mapa, double tara) {
         super(codigo, mapa);
         this.tara = tara;
     }
 
 
-    public double getTara() { return tara; }
+    public double getTara() {
+        return tara;
+    }
 }
