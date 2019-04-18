@@ -6,7 +6,7 @@ import gestionpedidos.mapa.PosicionXY;
 import gestionpedidos.pedido.Pedido;
 import gestionpedidos.transportes.Transporte;
 
-@Programacion2 (
+@Programacion2(
         nombreAutor1 = "Jesus",
         apellidoAutor1 = "Jerez Ballesteros",
         emailUPMAutor1 = "jesus.jerez.ballesteros@alumnos.upm.es",
@@ -56,20 +56,19 @@ public class GestionReparto {
      */
 
     //PRE: se da una posición válida
-    private int getLocalidad(PosicionXY posicion){
+    private int getLocalidad(PosicionXY posicion) {
 
         int coordenadaX = posicion.getX();
         int coordenadaY = posicion.getY();
 
-        if(coordenadaX >= 0 && coordenadaX <= mapa.getMaxCoordX()/2) {
-            // Si X es mayor que 0 y menor que maximoX/2, entonces está en la zona 0 o 1
+        if (coordenadaX >= 0 && coordenadaX <= mapa.getMaxCoordX() / 2) {
 
-            return (coordenadaY >= 0 && coordenadaY <= mapa.getMaxCoordY()/2)? 0: 1;
+            return (coordenadaY >= 0 && coordenadaY <= mapa.getMaxCoordY() / 2) ? 0 : 1;
             // Si Y es mayor que 0 y menor que maximoY/2, entonces estará en la zona 0, sino en la 1
 
-        }else{
+        } else {
 
-            return (coordenadaY >= 0 && coordenadaY <= mapa.getMaxCoordY()/2)? 2: 3;
+            return (coordenadaY >= 0 && coordenadaY <= mapa.getMaxCoordY() / 2) ? 2 : 3;
             // Si Y es mayor que 0 y menor que maximoY/2, entonces estará en la zona 2, sino en la 3
 
         }
@@ -77,26 +76,20 @@ public class GestionReparto {
 
     //PRE: el transporte no ha sido asignado a ninguna zona
     public void addTransporteLocalidad(Transporte transporte) {
-
         int zona = getLocalidad(mapa.getPosicion(transporte.getCodigo()));
         gestoresLocales[zona].add(transporte);
-
     }
 
     //PRE: el pedido no tiene asignado ningún transporte
     public void asignarPedido(Pedido pedido) {
-
         int zona = getLocalidad(mapa.getPosicion(pedido.getCliente().getCodigo()));
         gestoresLocales[zona].asignarPedido(pedido);
-
     }
 
     //PRE: el pedido tiene asignado un transporte
     public void notificarEntregaPedido(Pedido pedido) {
-
         int zona = getLocalidad(mapa.getPosicion(pedido.getCliente().getCodigo()));
         gestoresLocales[zona].notificarEntregaPedido(pedido);
-
     }
 
 }

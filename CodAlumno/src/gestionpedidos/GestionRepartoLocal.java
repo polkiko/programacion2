@@ -1,10 +1,19 @@
 package gestionpedidos;
 
+import anotacion.Programacion2;
 import gestionpedidos.pedido.Pedido;
 import gestionpedidos.transportes.*;
 import list.ArrayList;
 import queues.NaiveQueue;
 
+@Programacion2(
+        nombreAutor1 = "Jesus",
+        apellidoAutor1 = "Jerez Ballesteros",
+        emailUPMAutor1 = "jesus.jerez.ballesteros@alumnos.upm.es",
+        nombreAutor2 = "",
+        apellidoAutor2 = "",
+        emailUPMAutor2 = ""
+)
 
 public class GestionRepartoLocal {
 
@@ -91,7 +100,7 @@ public class GestionRepartoLocal {
 
     private static final double PESOMAXMOTO = 20;
 
-    // C�DIGO DE APOYO
+    // CÓDIGO DE APOYO
     public GestionRepartoLocal() {
 
         this.motosDisponibles = new ArrayList<>();
@@ -103,16 +112,16 @@ public class GestionRepartoLocal {
 
     //PRE: el transporte no ha sido asignado a ninguna zona
     public void add(Transporte transporte) {
+        // Declaro una variable del tipo del Array y le asigno el transporte dado mediante un cast (puesto que Moto y
+        // Furgoneta heredan de Transporte)
 
-        if (transporte.getCodigo().charAt(0) == 'F') {
+        if (transporte.getCodigo().charAt(0) == 'M') {
+            Moto moto = (Moto) transporte;
+            motosDisponibles.add(motosDisponibles.size(), moto);
+        } else {
             Furgoneta furgo = (Furgoneta) transporte;
             furgonetasDisponibles.add(furgonetasDisponibles.size(), furgo);
-        } else {
-            Moto motillo = (Moto) transporte;
-            motosDisponibles.add(motosDisponibles.size(), motillo);
         }
-
-
     }
 
     //PRE: el pedido no tiene asignado ningún transporte
@@ -122,10 +131,13 @@ public class GestionRepartoLocal {
         double costeActual = 0;
         Transporte transporteAsignado = null;
 
+        //ArrayList<Moto> transporteAsignadoi = new ArrayList<Moto>(motosDisponibles);
+
+
         if (pedido.getPeso() <= PESOMAXMOTO) { // Si el peso del pedido es menor o igual al MAX_MOTO
 
             // Lo lleva en moto
-            if(!(motosDisponibles.size() == 0)) {
+            if (motosDisponibles.size() != 0) {
                 // Hay motos disponibles
                 for (int i = 0; i < motosDisponibles.size(); i++) {
 
@@ -138,7 +150,7 @@ public class GestionRepartoLocal {
 
                 }
                 motosDisponibles.remove((Moto) transporteAsignado);
-            }else{
+            } else {
                 // No hay motos, se pone en cola
                 pedidosEsperandoMoto.add(pedido);
             }
@@ -146,8 +158,8 @@ public class GestionRepartoLocal {
         } else {
 
             // Lo lleva en furgoneta
-            if(!(furgonetasDisponibles.size() == 0)) {
-                // Hay furgos disponibles
+            if (furgonetasDisponibles.size() != 0) {
+                // Hay disponibles
                 for (int i = 0; i < furgonetasDisponibles.size(); i++) {
 
                     costeActual = pedido.coste(furgonetasDisponibles.get(i));
@@ -159,30 +171,29 @@ public class GestionRepartoLocal {
 
                 }
                 furgonetasDisponibles.remove((Furgoneta) transporteAsignado);
-            }else{
-                // No hay furgos, se pone en cola
+            } else {
+                // No hay, se pone en cola
                 pedidosEsperandoFurgoneta.add(pedido);
             }
         }
 
         pedido.setTransporte(transporteAsignado);
-        //System.out.println("Asignamos por tanto " + transporteAsignado.getCodigo());
     }
 
     //PRE: el pedido tiene asignado un transporte
     public void notificarEntregaPedido(Pedido pedido) {
-        if(pedido.getTransporte().getCodigo().charAt(0) == 'M'){
-            if(!pedidosEsperandoMoto.isEmpty()) {
+        if (pedido.getTransporte().getCodigo().charAt(0) == 'M') {
+            if (!pedidosEsperandoMoto.isEmpty()) {
                 pedidosEsperandoMoto.peek().setTransporte(pedido.getTransporte());
                 pedidosEsperandoMoto.poll();
-            }else{
+            } else {
                 motosDisponibles.add(motosDisponibles.size(), (Moto) pedido.getTransporte());
             }
-        }else{
-            if(!pedidosEsperandoFurgoneta.isEmpty()){
+        } else {
+            if (!pedidosEsperandoFurgoneta.isEmpty()) {
                 pedidosEsperandoFurgoneta.peek().setTransporte(pedido.getTransporte());
                 pedidosEsperandoFurgoneta.poll();
-            }else{
+            } else {
                 furgonetasDisponibles.add(furgonetasDisponibles.size(), (Furgoneta) pedido.getTransporte());
             }
         }
