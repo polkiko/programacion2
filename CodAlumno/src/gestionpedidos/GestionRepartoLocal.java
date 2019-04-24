@@ -127,54 +127,38 @@ public class GestionRepartoLocal {
     //PRE: el pedido no tiene asignado ningún transporte
     public void asignarPedido(Pedido pedido) {
 
-        double temp = 99999;
+        ArrayList<Transporte> trans;
+        NaiveQueue<Pedido> cola;
+
+        if(pedido.getPeso() <= PESOMAXMOTO){
+            trans = (ArrayList) motosDisponibles;
+            cola = pedidosEsperandoMoto;
+        } else {
+            trans = (ArrayList) furgonetasDisponibles;
+            cola = pedidosEsperandoFurgoneta;
+        }
+
+        double temp = Integer.MAX_VALUE;
         double costeActual = 0;
         Transporte transporteAsignado = null;
 
-        //ArrayList<Moto> transporteAsignadoi = new ArrayList<Moto>(motosDisponibles);
+        if (trans.size() != 0) {
+            // Hay transporte disponible
+            for (int i = 0; i < trans.size(); i++) {
 
+                costeActual = pedido.coste(trans.get(i));
 
-        if (pedido.getPeso() <= PESOMAXMOTO) { // Si el peso del pedido es menor o igual al MAX_MOTO
-
-            // Lo lleva en moto
-            if (motosDisponibles.size() != 0) {
-                // Hay motos disponibles
-                for (int i = 0; i < motosDisponibles.size(); i++) {
-
-                    costeActual = pedido.coste(motosDisponibles.get(i));
-
-                    if (costeActual <= temp) {
-                        transporteAsignado = motosDisponibles.get(i);
-                        temp = costeActual;
-                    }
-
+                if (costeActual <= temp) {
+                    transporteAsignado = trans.get(i);
+                    temp = costeActual;
                 }
-                motosDisponibles.remove((Moto) transporteAsignado);
-            } else {
-                // No hay motos, se pone en cola
-                pedidosEsperandoMoto.add(pedido);
+
             }
+            trans.remove(transporteAsignado);
 
         } else {
-
-            // Lo lleva en furgoneta
-            if (furgonetasDisponibles.size() != 0) {
-                // Hay disponibles
-                for (int i = 0; i < furgonetasDisponibles.size(); i++) {
-
-                    costeActual = pedido.coste(furgonetasDisponibles.get(i));
-
-                    if (costeActual <= temp) {
-                        transporteAsignado = furgonetasDisponibles.get(i);
-                        temp = costeActual;
-                    }
-
-                }
-                furgonetasDisponibles.remove((Furgoneta) transporteAsignado);
-            } else {
-                // No hay, se pone en cola
-                pedidosEsperandoFurgoneta.add(pedido);
-            }
+            // No hay transporte, se pone en cola
+            cola.add(pedido);
         }
 
         pedido.setTransporte(transporteAsignado);
