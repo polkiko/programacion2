@@ -15,7 +15,7 @@ import gestionpedidos.transportes.Transporte;
 public class Pedido {
 
     private Cliente cliente;
-    private PlatoComida[] comidas;
+    private PlatoComida[] comidas; // Atributo no necesario
     private Restaurante restaurante;
     private double importe;
     private Transporte transporte = null;
