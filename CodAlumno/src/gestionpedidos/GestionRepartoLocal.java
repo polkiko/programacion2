@@ -115,7 +115,7 @@ public class GestionRepartoLocal {
         // Declaro una variable del tipo del Array y le asigno el transporte dado mediante un cast (puesto que Moto y
         // Furgoneta heredan de Transporte)
 
-        if (transporte.getCodigo().charAt(0) == 'M') {
+        if (transporte instanceof Moto) {
             Moto moto = (Moto) transporte;
             motosDisponibles.add(motosDisponibles.size(), moto);
         } else {
@@ -138,48 +138,53 @@ public class GestionRepartoLocal {
             cola = pedidosEsperandoFurgoneta;
         }
 
-        double temp = Integer.MAX_VALUE;
-        double costeActual = 0;
-        Transporte transporteAsignado = null;
+        if (trans.size() != 0) { // Hay transporte disponible
+            // Calculamos el coste mínimo con los transportes disponibles
 
-        if (trans.size() != 0) {
-            // Hay transporte disponible
+            double temp = Integer.MAX_VALUE;
+            double costeMinimo;
+            Transporte transporteAsignado = null;
+
             for (int i = 0; i < trans.size(); i++) {
 
-                costeActual = pedido.coste(trans.get(i));
+                costeMinimo = pedido.coste(trans.get(i));
 
-                if (costeActual <= temp) {
+                if (costeMinimo <= temp) {
                     transporteAsignado = trans.get(i);
-                    temp = costeActual;
+                    temp = costeMinimo;
                 }
 
             }
-            trans.remove(transporteAsignado);
+            trans.remove(transporteAsignado); // Eliminamos el transporte para que ya no esté disponible
+            pedido.setTransporte(transporteAsignado); // Y lo asignamos al pedido
 
-        } else {
-            // No hay transporte, se pone en cola
+        } else { // Si no hay transporte disponible, el pedido se pone en cola
             cola.add(pedido);
         }
 
-        pedido.setTransporte(transporteAsignado);
     }
 
     //PRE: el pedido tiene asignado un transporte
     public void notificarEntregaPedido(Pedido pedido) {
-        if (pedido.getTransporte().getCodigo().charAt(0) == 'M') {
-            if (!pedidosEsperandoMoto.isEmpty()) {
-                pedidosEsperandoMoto.peek().setTransporte(pedido.getTransporte());
-                pedidosEsperandoMoto.poll();
-            } else {
-                motosDisponibles.add(motosDisponibles.size(), (Moto) pedido.getTransporte());
-            }
+
+        ArrayList<Transporte> trans;
+        NaiveQueue<Pedido> cola;
+
+        if(pedido.getTransporte() instanceof Moto){
+            trans = (ArrayList) motosDisponibles;
+            cola = pedidosEsperandoMoto;
         } else {
-            if (!pedidosEsperandoFurgoneta.isEmpty()) {
-                pedidosEsperandoFurgoneta.peek().setTransporte(pedido.getTransporte());
-                pedidosEsperandoFurgoneta.poll();
-            } else {
-                furgonetasDisponibles.add(furgonetasDisponibles.size(), (Furgoneta) pedido.getTransporte());
-            }
+            trans = (ArrayList) furgonetasDisponibles;
+            cola = pedidosEsperandoFurgoneta;
         }
+
+        if (cola.isEmpty()) {
+            trans.add(trans.size(), pedido.getTransporte()); // Añadimos el transporte que se ha quedado libre tras la entrega del pedido
+        } else {
+            cola.poll().setTransporte(pedido.getTransporte()); // Quitamos el pedido de la cola y le añadimos transporte
+            // El método poll() devuelve (peek()) el último elemento añadido a la cola, y avanza
+        }
+
     }
+
 }
